@@ -138,7 +138,7 @@ export default class FlappyBirdGame {
     birdAABB.left += 10;
     birdAABB.right -= 10;
 
-    if (birdAABB.top >= GROUND_Y) {
+    if (birdAABB.top >= GROUND_Y || birdAABB.bottom < 0) {
       this.gameOver();
       return;
     }
