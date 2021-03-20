@@ -1,4 +1,4 @@
-import FlappyBirdGame from '../models/flappyBirdGame';
+import flappyBirdGame from '../models/flappyBirdGame';
 
 const initializeGame = () => {
   const container = document.createElement('div');
@@ -33,8 +33,7 @@ const initializeGame = () => {
     event.preventDefault();
     container.remove();
     localStorage.setItem('playerName', JSON.stringify(formInput.value));
-    // eslint-disable-next-line no-new
-    new FlappyBirdGame();
+    flappyBirdGame();
   });
 };
 
