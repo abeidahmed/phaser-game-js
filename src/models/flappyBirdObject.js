@@ -14,11 +14,11 @@ export default class FlappyBirdObject {
     this.velocity = 0;
   }
 
-  Destroy() {
+  destroy() {
     this.sprite.destroy();
   }
 
-  Update(timeElapsed, keyboard) {
+  update(timeElapsed, keyboard) {
     this.applyGravity(timeElapsed);
     this.handleInput(timeElapsed, keyboard);
     this.velocity = Math.min(

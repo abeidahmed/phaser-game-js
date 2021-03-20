@@ -14,17 +14,17 @@ export default class PipePairObject {
     this.sprite2.displayHeight = -1 * this.sprite2.height;
   }
 
-  Destroy() {
+  destroy() {
     this.sprite1.destroy();
     this.sprite2.destroy();
   }
 
-  Update(timeElapsed) {
+  update(timeElapsed) {
     this.sprite1.x += timeElapsed * TREADMILL_SPEED;
     this.sprite2.x += timeElapsed * TREADMILL_SPEED;
   }
 
-  Intersects(aabb) {
+  intersects(aabb) {
     const b1 = this.sprite1.getBounds();
     const b2 = this.sprite2.getBounds();
     b2.y -= this.sprite2.height;
@@ -34,7 +34,7 @@ export default class PipePairObject {
     );
   }
 
-  Reset(x) {
+  reset(x) {
     const height = CONFIG_HEIGHT * (0.25 + 0.5 * Math.random());
     this.sprite1.x = x;
     this.sprite1.y = height + PIPE_SPACING_Y * 0.5;
