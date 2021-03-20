@@ -23,8 +23,8 @@ class FlappyBirdGame {
   destroy() {
     this.bird.destroy();
 
-    for (const p of this.pipes) {
-      p.destroy();
+    for (let i = 0; i < this.pipes.length; i += 1) {
+      this.pipes[i].destroy();
     }
 
     this.scoreText.destroy();
@@ -55,7 +55,7 @@ class FlappyBirdGame {
           self.onPreload(this);
         },
         create() {
-          self.onCreate(this);
+          self.onCreate();
         },
         update() {
           self.onUpdate(this);
@@ -79,7 +79,21 @@ class FlappyBirdGame {
     this.scene.load.image('pipe', PipeAsset);
   }
 
-  onCreate(scene) {
+  handleKeyboardDownKeyF() {
+    if (this.scene.scale.isFullscreen) {
+      this.scene.scale.stopFullscreen();
+    } else {
+      this.scene.scale.startFullscreen();
+    }
+  }
+
+  handleKeyboardDownKeyR() {
+    this.destroy();
+    this.init();
+    this.drawScore();
+  }
+
+  onCreate() {
     const s = this.scene.add.image(0, 0, 'sky');
     s.displayOriginX = 0;
     s.displayOriginY = 0;
@@ -92,27 +106,8 @@ class FlappyBirdGame {
       r: this.scene.input.keyboard.addKey('R'),
     };
 
-    this.keys.f.on(
-      'down',
-      function () {
-        if (this.scene.scale.isFullscreen) {
-          this.scene.scale.stopFullscreen();
-        } else {
-          this.scene.scale.startFullscreen();
-        }
-      },
-      this,
-    );
-
-    this.keys.r.on(
-      'down',
-      function () {
-        this.destroy();
-        this.init();
-        this.drawScore();
-      },
-      this,
-    );
+    this.keys.f.on('down', this.handleKeyboardDownKeyF, this);
+    this.keys.r.on('down', this.handleKeyboardDownKeyR, this);
 
     this.init();
     this.drawScore();
@@ -150,9 +145,9 @@ class FlappyBirdGame {
       return;
     }
 
-    for (const p of this.pipes) {
-      if (p.intersects(birdAABB)) {
-        const a = p.intersects(birdAABB);
+    for (let i = 0; i < this.pipes.length; i += 1) {
+      if (this.pipes[i].intersects(birdAABB)) {
+        this.pipes[i].intersects(birdAABB);
         this.gameOver();
         return;
       }
@@ -162,9 +157,8 @@ class FlappyBirdGame {
   updatePipes(timeElapsed) {
     const oldPipeX = this.pipes[0].x + this.pipes[0].width;
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const p of this.pipes) {
-      p.update(timeElapsed);
+    for (let i = 0; i < this.pipes.length; i += 1) {
+      this.pipes[i].update(timeElapsed);
     }
 
     const newPipeX = this.pipes[0].x + this.pipes[0].width;
