@@ -8,3 +8,5 @@ export const TREADMILL_SPEED = -125;
 export const CONFIG_WIDTH = document.documentElement.clientWidth;
 export const CONFIG_HEIGHT = document.documentElement.clientHeight;
 export const GROUND_Y = CONFIG_HEIGHT;
+
+export const API = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';
