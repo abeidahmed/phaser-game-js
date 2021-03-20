@@ -6,6 +6,10 @@ import GameOver from '../scenes/gameOver';
 const flappyBirdGame = () => {
   const config = {
     type: Phaser.AUTO,
+    parent: 'phaser-container',
+    dom: {
+      createContainer: true,
+    },
     scene: [Playable, GameOver],
     scale: {
       mode: Phaser.Scale.FIT,

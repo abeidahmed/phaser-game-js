@@ -20,7 +20,7 @@ export default class Playable extends Phaser.Scene {
 
   initializeGame() {
     for (let i = 0; i < 5; i += 1) {
-      this.pipes.push(new PipePairObject(this, 500 + i * 250));
+      this.pipes.push(new PipePairObject(this, 500 + i * 400));
     }
 
     this.bird = new FlappyBirdObject(this);
