@@ -38,7 +38,7 @@ export default class FlappyBirdObject {
     this.sprite.angle = deg * 0.3;
   }
 
-  get Bounds() {
+  get bounds() {
     return this.sprite.getBounds();
   }
 

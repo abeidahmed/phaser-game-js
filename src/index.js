@@ -139,7 +139,7 @@ class FlappyBirdGame {
   }
 
   checkGameOver() {
-    const birdAABB = this.bird.Bounds;
+    const birdAABB = this.bird.bounds;
     birdAABB.top += 10;
     birdAABB.bottom -= 10;
     birdAABB.left += 10;
@@ -160,23 +160,23 @@ class FlappyBirdGame {
   }
 
   updatePipes(timeElapsed) {
-    const oldPipeX = this.pipes[0].X + this.pipes[0].Width;
+    const oldPipeX = this.pipes[0].x + this.pipes[0].width;
 
     // eslint-disable-next-line no-restricted-syntax
     for (const p of this.pipes) {
       p.update(timeElapsed);
     }
 
-    const newPipeX = this.pipes[0].X + this.pipes[0].Width;
+    const newPipeX = this.pipes[0].x + this.pipes[0].width;
 
     if (oldPipeX > 50 && newPipeX <= 50) {
       this.score += 1;
       this.scoreText.text = `Score: ${this.score}`;
     }
 
-    if (this.pipes[0].X + this.pipes[0].Width <= 0) {
+    if (this.pipes[0].x + this.pipes[0].width <= 0) {
       const p = this.pipes.shift();
-      p.reset(this.pipes[this.pipes.length - 1].X + 200.0);
+      p.reset(this.pipes[this.pipes.length - 1].x + 200.0);
       this.pipes.push(p);
     }
   }

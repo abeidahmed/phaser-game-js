@@ -42,11 +42,11 @@ export default class PipePairObject {
     this.sprite2.y = height - PIPE_SPACING_Y * 0.5;
   }
 
-  get X() {
+  get x() {
     return this.sprite1.x;
   }
 
-  get Width() {
+  get width() {
     return this.sprite1.width;
   }
 }
