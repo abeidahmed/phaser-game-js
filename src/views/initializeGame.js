@@ -1,4 +1,5 @@
 import flappyBirdGame from '../models/flappyBirdGame';
+import createUser from '../api/createUser';
 
 const initializeGame = () => {
   const container = document.createElement('div');
@@ -29,10 +30,17 @@ const initializeGame = () => {
 
   document.body.prepend(container);
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     container.remove();
-    localStorage.setItem('playerName', JSON.stringify(formInput.value));
+    try {
+      const { result } = await createUser(formInput.value);
+      const userId = result.split(' ')[3];
+      localStorage.setItem('playerName', JSON.stringify(formInput.value));
+      localStorage.setItem('userId', JSON.stringify(userId));
+    } catch (error) {
+      throw new Error(error);
+    }
     flappyBirdGame();
   });
 };
