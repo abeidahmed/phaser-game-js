@@ -31,8 +31,9 @@ const initializeGame = () => {
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log(formInput.value);
     container.remove();
+    localStorage.setItem('playerName', JSON.stringify(formInput.value));
+    // eslint-disable-next-line no-new
     new FlappyBirdGame();
   });
 };
