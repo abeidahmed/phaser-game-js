@@ -10,11 +10,11 @@ import {
 export default class FlappyBirdObject {
   constructor(scene) {
     this.sprite = scene.add.sprite(50, 100, 'bird');
-    this.sprite.setScale(0.05);
+    this.sprite.setScale(0.05, 0.05);
     this.velocity = 0;
   }
 
-  destroy() {
+  destroyBird() {
     this.sprite.destroy();
   }
 

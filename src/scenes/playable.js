@@ -12,7 +12,7 @@ export default class Playable extends Phaser.Scene {
     this.previousFrame = null;
     this.bird = null;
     this.isGameOver = false;
-    this.score = 0;
+    this.score = 1;
     this.scoreText = null;
     this.gameOverText = null;
     this.pipes = [];
@@ -25,11 +25,11 @@ export default class Playable extends Phaser.Scene {
 
     this.bird = new FlappyBirdObject(this);
     this.isGameOver = false;
-    this.score = 0;
+    this.score = 1;
   }
 
   destroy() {
-    this.bird.destroy();
+    this.bird.destroyBird();
 
     for (let i = 0; i < this.pipes.length; i += 1) {
       this.pipes[i].destroy();
@@ -58,12 +58,6 @@ export default class Playable extends Phaser.Scene {
     }
   }
 
-  handleKeyboardDownKeyR() {
-    this.destroy();
-    this.initializeGame();
-    this.drawScore();
-  }
-
   create() {
     const s = this.add.image(0, 0, 'sky');
     s.displayOriginX = 0;
@@ -74,11 +68,9 @@ export default class Playable extends Phaser.Scene {
     this.keys = {
       up: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP),
       f: this.input.keyboard.addKey('F'),
-      r: this.input.keyboard.addKey('R'),
     };
 
     this.keys.f.on('down', this.handleKeyboardDownKeyF, this);
-    this.keys.r.on('down', this.handleKeyboardDownKeyR, this);
 
     this.initializeGame();
     this.drawScore();
@@ -118,7 +110,6 @@ export default class Playable extends Phaser.Scene {
 
     for (let i = 0; i < this.pipes.length; i += 1) {
       if (this.pipes[i].intersects(birdAABB)) {
-        this.pipes[i].intersects(birdAABB);
         this.gameOver();
         return;
       }
@@ -168,7 +159,7 @@ export default class Playable extends Phaser.Scene {
   }
 
   drawScore() {
-    const text = 'Score: 0';
+    const text = 'Score: 1';
     const style = {
       font: '40px Roboto',
       fill: '#FFFFFF',

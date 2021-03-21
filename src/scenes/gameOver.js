@@ -10,12 +10,7 @@ export default class GameOver extends Phaser.Scene {
 
   // eslint-disable-next-line class-methods-use-this
   init({ score }) {
-    localStorage.setItem('userScore', score);
-  }
-
-  handleKeyboardDownKeyR() {
-    this.scene.get('playable').destroy();
-    this.scene.start('playable');
+    localStorage.setItem('userScore', JSON.stringify(score));
   }
 
   preload() {
@@ -37,6 +32,12 @@ export default class GameOver extends Phaser.Scene {
       r: this.input.keyboard.addKey('R'),
     };
 
-    this.keys.r.on('down', this.handleKeyboardDownKeyR, this);
+    this.keys.r.on(
+      'down',
+      () => {
+        window.location.reload();
+      },
+      this,
+    );
   }
 }

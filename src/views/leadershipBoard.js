@@ -32,7 +32,7 @@ const leadershipBoard = () => {
   container.append(innerContainer);
 
   const title = document.createElement('h1');
-  title.textContent = 'Leadership board';
+  title.textContent = 'Showing top 10 scorers';
   innerContainer.append(title);
 
   const info = document.createElement('span');

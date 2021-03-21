@@ -4,14 +4,16 @@ const sorter = (object) => object.sort((a, b) => (a.score > b.score ? -1 : 1));
 
 const getScores = async () => {
   try {
-    const res = await fetch(`${API}/games/XAaxay46daPVy7fbxR3j/scores`, {
+    const res = await fetch(`${API}/games/PeVDSytp5BQMlIq7YQsR/scores`, {
       headers: {
         'Content-type': 'application/json',
         Accept: 'application/json',
       },
     });
     const { result } = await res.json();
-    return sorter(result);
+    const sortedResult = sorter(result);
+
+    return sortedResult.slice(0, 9);
   } catch (error) {
     throw new Error(error);
   }
@@ -19,7 +21,7 @@ const getScores = async () => {
 
 const updateScores = async ({ user, score }) => {
   try {
-    const res = await fetch(`${API}/games/XAaxay46daPVy7fbxR3j/scores`, {
+    const res = await fetch(`${API}/games/PeVDSytp5BQMlIq7YQsR/scores`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
