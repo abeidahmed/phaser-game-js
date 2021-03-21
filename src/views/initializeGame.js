@@ -32,16 +32,16 @@ const initializeGame = () => {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    container.remove();
     try {
       const { result } = await createUser(formInput.value);
       const userId = result.split(' ')[3];
       localStorage.setItem('playerName', JSON.stringify(formInput.value));
       localStorage.setItem('userId', JSON.stringify(userId));
+      container.remove();
+      flappyBirdGame();
     } catch (error) {
       throw new Error(error);
     }
-    flappyBirdGame();
   });
 };
 
