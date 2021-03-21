@@ -1,4 +1,7 @@
 import './stylesheets/index.scss';
 import initializeGame from './views/initializeGame';
+import flappyBirdGame from './models/flappyBirdGame';
 
-window.addEventListener('DOMContentLoaded', initializeGame);
+flappyBirdGame();
+
+// window.addEventListener('DOMContentLoaded', initializeGame);
