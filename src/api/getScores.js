@@ -1,5 +1,7 @@
 import { API } from '../constants';
 
+const sorter = (object) => object.sort((a, b) => (a.score > b.score ? -1 : 1));
+
 const getScores = async () => {
   try {
     const res = await fetch(`${API}/games/zohCTei0yd8ZDA4xMOqH/scores`, {
@@ -8,8 +10,8 @@ const getScores = async () => {
         Accept: 'application/json',
       },
     });
-    const serverRes = await res.json();
-    return serverRes;
+    const { result } = await res.json();
+    return sorter(result);
   } catch (error) {
     throw new Error(error);
   }

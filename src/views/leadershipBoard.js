@@ -4,7 +4,7 @@ const renderScores = async (ul) => {
   try {
     const user = JSON.parse(localStorage.getItem('playerName'));
     const score = JSON.parse(localStorage.getItem('userScore'));
-    const { result } = await getScores({ user, score });
+    const result = await getScores({ user, score });
 
     result.forEach((player) => {
       const playerStats = document.createElement('li');
