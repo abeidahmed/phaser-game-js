@@ -32,6 +32,7 @@ const initializeGame = () => {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    formBtn.textContent = 'LOADING GAME...';
     try {
       const { result } = await createUser(formInput.value);
       const userId = result.split(' ')[3];
@@ -41,6 +42,8 @@ const initializeGame = () => {
       flappyBirdGame();
     } catch (error) {
       throw new Error(error);
+    } finally {
+      formBtn.textContent = 'PLAY GAME';
     }
   });
 };
