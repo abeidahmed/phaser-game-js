@@ -80,7 +80,7 @@ body {
   .leaderboard-inner-container {
     max-width: 576px;
     width: 100%;
-    padding: 32px;
+    padding: 24px;
     background: rgba(255, 255, 255, 0.7);
     border-radius: 12px;
     margin: 0 auto;
@@ -99,6 +99,7 @@ body {
 .box {
   list-style: none;
   padding: 0;
+  margin: 0;
 
   > * + * {
     border-top: 1px solid #9ca3af;
