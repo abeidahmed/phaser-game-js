@@ -90,9 +90,17 @@ body {
     margin: 0;
     font-size: 24px;
     text-align: center;
-    margin-bottom: 24px;
     font-weight: 600;
     color: #1e293b;
+  }
+
+  span {
+    text-align: center;
+    display: block;
+    margin-top: 6px;
+    margin-bottom: 24px;
+    color: #047857;
+    font-weight: 600;
   }
 }
 

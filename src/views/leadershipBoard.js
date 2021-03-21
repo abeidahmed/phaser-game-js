@@ -35,6 +35,10 @@ const leadershipBoard = () => {
   title.textContent = 'Leadership board';
   innerContainer.append(title);
 
+  const info = document.createElement('span');
+  info.textContent = "Press 'r' to restart the game";
+  innerContainer.append(info);
+
   const ul = document.createElement('ul');
   ul.classList.add('box');
   const li = document.createElement('li');
