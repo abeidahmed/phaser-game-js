@@ -6,11 +6,11 @@ import leadershipBoard from '../views/leadershipBoard';
 export default class GameOver extends Phaser.Scene {
   constructor() {
     super('game-over');
-    this.score = null;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   init({ score }) {
-    this.score = score;
+    localStorage.setItem('userScore', score);
   }
 
   preload() {

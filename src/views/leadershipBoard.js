@@ -1,3 +1,28 @@
+import getScores from '../api/getScores';
+
+const renderScores = async (ul) => {
+  try {
+    const user = JSON.parse(localStorage.getItem('playerName'));
+    const score = JSON.parse(localStorage.getItem('userScore'));
+    const { result } = await getScores({ user, score });
+
+    result.forEach((player) => {
+      const playerStats = document.createElement('li');
+      const playerNameTitle = document.createElement('div');
+      playerNameTitle.textContent = player.user;
+
+      const playerScore = document.createElement('div');
+      playerScore.textContent = player.score;
+      playerStats.append(playerNameTitle);
+      playerStats.append(playerScore);
+
+      ul.append(playerStats);
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 const leadershipBoard = () => {
   const container = document.createElement('div');
   container.classList.add('leaderboard-container');
@@ -20,17 +45,8 @@ const leadershipBoard = () => {
   li.append(liTitle);
   li.append(liScoreTitle);
 
-  const playerStats = document.createElement('li');
-  const playerNameTitle = document.createElement('div');
-  playerNameTitle.textContent = 'Abeid Ahmed';
-
-  const playerScore = document.createElement('div');
-  playerScore.textContent = '40';
-  playerStats.append(playerNameTitle);
-  playerStats.append(playerScore);
-
   ul.append(li);
-  ul.append(playerStats);
+  renderScores(ul);
 
   innerContainer.append(ul);
 
