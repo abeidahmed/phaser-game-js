@@ -13,6 +13,11 @@ export default class GameOver extends Phaser.Scene {
     localStorage.setItem('userScore', score);
   }
 
+  handleKeyboardDownKeyR() {
+    this.scene.get('playable').destroy();
+    this.scene.start('playable');
+  }
+
   preload() {
     this.load.image('sky', BgAsset);
   }
@@ -27,5 +32,11 @@ export default class GameOver extends Phaser.Scene {
     const parentContainer = this.add.dom(0, 0, leadershipBoard());
     parentContainer.displayOriginY = 0;
     parentContainer.displayOriginX = 0;
+
+    this.keys = {
+      r: this.input.keyboard.addKey('R'),
+    };
+
+    this.keys.r.on('down', this.handleKeyboardDownKeyR, this);
   }
 }
