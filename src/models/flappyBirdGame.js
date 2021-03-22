@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { CONFIG_WIDTH, CONFIG_HEIGHT } from '../constants';
+import Preloader from '../scenes/preloader';
 import Playable from '../scenes/playable';
 import GameOver from '../scenes/gameOver';
 
@@ -10,7 +11,7 @@ const flappyBirdGame = () => {
     dom: {
       createContainer: true,
     },
-    scene: [Playable, GameOver],
+    scene: [Preloader, Playable, GameOver],
     scale: {
       mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH,
