@@ -1,6 +1,14 @@
 import getScores from '../api/getScores';
 
 const renderScores = async (ul) => {
+  const liLoading = document.createElement('li');
+  liLoading.classList.add('loading-content');
+  const loadingSpan = document.createElement('span');
+  loadingSpan.textContent = 'Leaderboard is loading. Please wait...';
+  liLoading.append(loadingSpan);
+
+  ul.append(liLoading);
+
   try {
     const user = JSON.parse(localStorage.getItem('playerName'));
     const score = JSON.parse(localStorage.getItem('userScore'));
@@ -20,6 +28,8 @@ const renderScores = async (ul) => {
     });
   } catch (error) {
     throw new Error(error);
+  } finally {
+    liLoading.remove();
   }
 };
 

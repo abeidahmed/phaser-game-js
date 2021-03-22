@@ -126,3 +126,16 @@ body {
     font-weight: 600;
   }
 }
+
+.loading-content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 32px;
+  font-size: 18px;
+
+  span {
+    display: block;
+    text-align: center;
+  }
+}
