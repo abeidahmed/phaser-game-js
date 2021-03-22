@@ -34,6 +34,7 @@ const renderScores = async (ul) => {
 };
 
 const leadershipBoard = () => {
+  const score = JSON.parse(localStorage.getItem('userScore'));
   const container = document.createElement('div');
   container.classList.add('leaderboard-container');
 
@@ -44,6 +45,10 @@ const leadershipBoard = () => {
   const title = document.createElement('h1');
   title.textContent = 'Showing top 10 scorers';
   innerContainer.append(title);
+
+  const playerScore = document.createElement('span');
+  playerScore.textContent = `You scored ${score} points`;
+  innerContainer.append(playerScore);
 
   const info = document.createElement('span');
   info.textContent = "Press 'r' to restart the game";
