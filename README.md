@@ -84,3 +84,8 @@ Give a ⭐️ if you like
 ## License
 
 This project is MIT licensed.
+
+## Acknowledgement
+
+Assets used to build this game are all opensourced and can be found at
+[OpenGameArt](https://opengameart.org/)
