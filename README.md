@@ -14,7 +14,7 @@ dodging the obstacles.
 
 ### Gameplay
 
-![gameplay](./dist/screenshots/game.png)
+![gameplay](./dist/screenshots/gameplay.png)
 
 ### Leaderboard
 
