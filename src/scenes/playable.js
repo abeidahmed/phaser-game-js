@@ -134,21 +134,6 @@ export default class Playable extends Phaser.Scene {
   }
 
   gameOver() {
-    const text = 'GAME OVER';
-    const style = {
-      font: '100px Roboto',
-      fill: '#FFFFFF',
-      align: 'center',
-      fixedWidth: CONFIG_WIDTH,
-      shadow: {
-        offsetX: 2,
-        offsetY: 2,
-        color: '#000',
-        blur: 2,
-        fill: true,
-      },
-    };
-
     this.isGameOver = true;
     this.scene.start('game-over', { score: this.score });
   }
