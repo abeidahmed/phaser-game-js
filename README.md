@@ -6,6 +6,10 @@ and was later removed from all the mediums by the author.
 The concept of the game is that the bird needs to fly as long as it can by
 dodging the obstacles.
 
+## Live demo
+
+[Click here](https://abeidahmed.github.io/phaser-game-js/)
+
 ## Screenshots
 
 ### Register yourself
