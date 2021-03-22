@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import BirdAsset from '../assets/bird.png';
+import BgAsset from '../assets/bg.png';
+import PipeAsset from '../assets/pipe.png';
 
 export default class Preloader extends Phaser.Scene {
   constructor() {
@@ -37,6 +39,8 @@ export default class Preloader extends Phaser.Scene {
     assetText.setOrigin(0.5, 0.5);
 
     this.load.image('bird', BirdAsset);
+    this.load.image('sky', BgAsset);
+    this.load.image('pipe', PipeAsset);
     for (let i = 0; i < 500; i += 1) {
       this.load.image(`bird${i}`, BirdAsset);
     }

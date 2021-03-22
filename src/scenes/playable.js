@@ -1,7 +1,4 @@
 import Phaser from 'phaser';
-import BirdAsset from '../assets/bird.png';
-import BgAsset from '../assets/bg.png';
-import PipeAsset from '../assets/pipe.png';
 import PipePairObject from '../models/pipePairObject';
 import FlappyBirdObject from '../models/flappyBirdObject';
 import { CONFIG_WIDTH, CONFIG_HEIGHT, GROUND_Y } from '../constants';
@@ -38,12 +35,6 @@ export default class Playable extends Phaser.Scene {
     this.bird = null;
     this.pipes = [];
     this.previousFrame = null;
-  }
-
-  preload() {
-    this.load.image('sky', BgAsset);
-    this.load.image('bird', BirdAsset);
-    this.load.image('pipe', PipeAsset);
   }
 
   handleKeyboardDownKeyF() {

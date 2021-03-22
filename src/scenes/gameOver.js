@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import BgAsset from '../assets/bg.png';
 import { CONFIG_WIDTH, CONFIG_HEIGHT } from '../constants';
 import leadershipBoard from '../views/leadershipBoard';
 
@@ -11,10 +10,6 @@ export default class GameOver extends Phaser.Scene {
   // eslint-disable-next-line class-methods-use-this
   init({ score }) {
     localStorage.setItem('userScore', JSON.stringify(score));
-  }
-
-  preload() {
-    this.load.image('sky', BgAsset);
   }
 
   create() {
