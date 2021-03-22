@@ -6,6 +6,20 @@ and was later removed from all the mediums by the author.
 The concept of the game is that the bird needs to fly as long as it can by
 dodging the obstacles.
 
+## Screenshots
+
+### Register yourself
+
+![register user](./dist/screenshots/register.png)
+
+### Gameplay
+
+![gameplay](./dist/screenshots/game.png)
+
+### Leaderboard
+
+![leaderboard](./dist/screenshots/leaderboard.png)
+
 ## How to play
 
 The first scene is meant to collect your username, by which the scores are updated
