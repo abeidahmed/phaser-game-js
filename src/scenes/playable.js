@@ -14,7 +14,6 @@ export default class Playable extends Phaser.Scene {
     this.isGameOver = false;
     this.score = 1;
     this.scoreText = null;
-    this.gameOverText = null;
     this.pipes = [];
   }
 
@@ -36,9 +35,6 @@ export default class Playable extends Phaser.Scene {
     }
 
     this.scoreText.destroy();
-    if (this.gameOverText !== null) {
-      this.gameOverText.destroy();
-    }
     this.bird = null;
     this.pipes = [];
     this.previousFrame = null;
@@ -153,7 +149,6 @@ export default class Playable extends Phaser.Scene {
       },
     };
 
-    this.gameOverText = this.add.text(0, CONFIG_HEIGHT * 0.25, text, style);
     this.isGameOver = true;
     this.scene.start('game-over', { score: this.score });
   }
