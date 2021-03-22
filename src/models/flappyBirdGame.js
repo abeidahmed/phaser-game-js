@@ -11,7 +11,7 @@ const flappyBirdGame = () => {
     dom: {
       createContainer: true,
     },
-    scene: [Playable, GameOver],
+    scene: [Preloader, Playable, GameOver],
     scale: {
       mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH,
