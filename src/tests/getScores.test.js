@@ -1,4 +1,4 @@
-import { getScores } from '../api/getScores';
+import getScores from '../api/getScores';
 
 describe('testing getScores api endpoint', () => {
   beforeEach(() => {

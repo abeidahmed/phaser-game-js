@@ -1,4 +1,4 @@
-import getScores from '../api/getScores';
+import updateScores from '../api/updateScores';
 
 const renderScores = async (ul) => {
   const liLoading = document.createElement('li');
@@ -12,7 +12,7 @@ const renderScores = async (ul) => {
   try {
     const user = JSON.parse(localStorage.getItem('playerName'));
     const score = JSON.parse(localStorage.getItem('userScore'));
-    const result = await getScores({ user, score });
+    const result = await updateScores({ user, score });
 
     result.forEach((player) => {
       const playerStats = document.createElement('li');
