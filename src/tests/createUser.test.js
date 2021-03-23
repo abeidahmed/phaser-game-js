@@ -1,8 +1,14 @@
-import createUser from './mocks/createUser.mock';
+import createUser from '../api/createUser';
 
-test('it creates a new user and returns the game key', () => {
-  const res = createUser();
-  res.then((serverRes) => {
-    expect(serverRes).toMatch(/(Game with ID).*(added)/);
+describe('testing createUser api endpoint', () => {
+  beforeEach(() => {
+    fetch.resetMocks();
+  });
+
+  it('creates a user', async () => {
+    fetch.mockResponseOnce(JSON.stringify({ result: 'Created user' }));
+    const res = await createUser('John Doe');
+
+    expect(res.result).toBe('Created user');
   });
 });
