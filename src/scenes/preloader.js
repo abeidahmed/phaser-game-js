@@ -18,7 +18,7 @@ export default class Preloader extends Phaser.Scene {
     const loadingText = this.make.text({
       x: width / 2,
       y: height / 2 - 50,
-      text: 'Loading...',
+      text: 'Tip: Press up-arrow to play the game',
       style: {
         font: '20px',
       },
