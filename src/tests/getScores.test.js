@@ -5,7 +5,7 @@ describe('testing getScores api endpoint', () => {
     fetch.resetMocks();
   });
 
-  it('passes', async () => {
+  it('returns the users name and score as an array of object', async () => {
     fetch.mockResponseOnce(
       JSON.stringify({
         result: [
