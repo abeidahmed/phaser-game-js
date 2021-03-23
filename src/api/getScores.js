@@ -2,7 +2,7 @@ import { API } from '../constants';
 
 const sorter = (object) => object.sort((a, b) => (a.score > b.score ? -1 : 1));
 
-const getScores = async () => {
+export const getScores = async () => {
   try {
     const res = await fetch(`${API}/games/DgRb9bRvC0KaxNWE7YIg/scores`, {
       headers: {
